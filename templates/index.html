@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Airplane Reservation System </title>
+    <link rel="stylesheet" type='text/css' href="{% static 'css/styles.css'%}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/menu.css'%}">
+</head>
+<body>
+
+<div class="banner"><h2><b><i>Fly with Us!</i></b></h2></div>
+<div class="front-end-details">
+  <form id="search" method="post">
+	<div class="group">
+		<label for="src">Source</label>
+	    <select id="src" name="source" placeholder="Enter Source">
+			{% for flight in source %}
+      			<option value={{flight.source}}>{{flight.source}}</option>
+    		{% endfor %}
+	    </select>
+	</div>
+	<div class="group">
+	    <label for="dst">Destination</label>
+	    <select id="dst" name="destination" placeholder="Enter Destination">
+	    	{% for flight in source %}
+      			<option value={{flight.destination}}>{{flight.destination}}</option>
+    		{% endfor %}
+	      </select>
+	</div>
+	<div class="group">
+	    <label for="num">Passengers</label>
+	    <select id="num" name="passengers" placeholder="Enter passengers..">
+
+			<option value="1">1</option>
+	      <option value="2">2</option>
+	      <option value="3">3</option>
+	      <option value="4">4</option>
+	      <option value="5">5</option>
+	      <option value="6">6</option>
+	      <option value="7">7</option>
+	      <option value="8">8</option>
+	      <option value="9">9</option>
+
+	      </select>
+	</div>
+
+	<div class="group">
+        <label for="date">Date</label>
+        <input type="date" id="start" name="date" required/>
+    </div>
+
+    <!--<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Class</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#economy">Economy</a>
+    <a href="#preminum">Premium</a>
+    <a href="#business">Business</a>
+  </div>
+</div>
+
+<script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+-->
+
+<div class="group">
+      <label for="cls">Class</label>
+      <select id="cls" name="clss" placeholder="clss">
+      <option value="0">Economy</option>
+        <option value="1">Business</option>
+	  </select>
+</div>
+
+  <div class="group">
+  	<input type="submit" value="Search">
+  </div>
+
+  </form>
+<!--  <div>
+  <a href="{% url 'newpay' %}">payment</a>
+  </div>
+</div>
+	  <div class="container">-->
+  
+</div>
+  <div class="content">
+
+    <h1 id="nav">AMIGOS JET</h1>
+  </div>
+
+<div id="content">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/./static/javascript/general.js"></script>
+</div>
+
+<div class="topnav">
+  <div class="topnav-right">
+	  <a class="active" href="{% url 'home' %}">Home</a>
+	  <a href="reservation">Ticket Cancel</a>
+  </div>
+</div>
+
+</body>
+</html>
