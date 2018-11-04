@@ -83,7 +83,7 @@ class BookingInfo(models.Model):
     seats = models.TextField(blank=True, null=True)  # This field type is a guess.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'booking_info'
 
 
@@ -96,7 +96,7 @@ class CustomerInfo(models.Model):
     passport = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'customer_info'
 
 
