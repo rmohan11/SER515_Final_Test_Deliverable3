@@ -114,19 +114,6 @@ def newpay(request):
                     request.session['lastname'], age=request.session['age'],
                                         gender=request.session['gender'], passport=request.session['passport'])
                     cust.save()
-                    """
-                    maxid = 0
-                    bookiterator = BookingInfo.objects.all()
-                    for o in bookiterator:
-                        if o.booking_id > maxid:
-                            maxid = o.booking_id
-                    bid = maxid+1
-
-                    if(request.session['bseats'] == None):
-                        seats = request.session['bseats']
-                    else:
-                        seats = request.session['eseats']
-                    """
                     import datetime
                     timestr = str(datetime.datetime.now())
                     splittedtime = timestr.split("-")
@@ -138,16 +125,10 @@ def newpay(request):
                                           departure_date=request.session['depature_date'], status='Confirmed',
                                           seats=int(request.session['passenger_count']))
                     booking.save()
-                    """import random
-                    x = random.randint(1001, 9999)
-                    request.session['confirmationId'] = 'VA'+str(x)"""
-                    # print('Travel class:'+request.session['class'])
                     travelclass = int(request.session['class'])
 
                     mmddyyyy = request.session['depature_date'].split('-')
                     idsearch = request.session['flight_id']+str(mmddyyyy[1])+str(mmddyyyy[2])
-                    #for s in mmddyyyy:
-                     #   idsearch += s
                     fdid = int(idsearch)
                     try:
                         flightd = FlightDetails.objects.get(id=fdid)
@@ -176,17 +157,11 @@ def newpay(request):
                                                 available_bseats=10,
                                                 available_eseats=seatsc, id=fdid)
                             fd2.save()
-                        #fd1 = FlightDetails(flight=flight_obj, departure_date=request.session['depature_date'],
-                         #                   available_bseats=10, available_eseats=30, id=fdid)
-                        #fd1.save()
-
-                    # flt_detail = FlightDetails()
                     request.session['flag'] = 'false'
                     return render(request, 'payment_success.html')
             else:
                 return render(request, 'payment_new.html')
         else:
-            #request.session['flag'] = 'false'
             return render(request, 'errorpage.html')
     except:
         request.session['flag'] = 'false'
