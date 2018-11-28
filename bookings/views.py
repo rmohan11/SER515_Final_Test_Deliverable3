@@ -228,7 +228,7 @@ def cancellation(request):
         BookingInfo.objects.filter(booking_id=bid).delete()
         CustomerInfo.objects.filter(customer_id=cid).delete()
         flight_obj = FlightInfo.objects.get(flight_id=request.session['cflight_id'])
-        flightd = FlightDetails.objects.get_object_or_404(id=fdid)
+        flightd = FlightDetails.objects.get(id=fdid)
         seatsc = flightd.available_eseats + int(request.session['cancelled_seats'])
         fd2 = FlightDetails(flight=flight_obj, departure_date=flightd.departure_date,
                             available_bseats=flightd.available_bseats,
