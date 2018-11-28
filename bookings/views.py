@@ -90,10 +90,10 @@ def passenger(request):
                 return render(request, 'passengers.html')
         else:
             #request.session['flag'] = 'false'
-            return render(request, 'error_page.html')
+            return render(request, 'errorpage.html')
     except:
         request.session['flag'] = 'false'
-        return render(request, 'error_page.html')
+        return render(request, 'errorpage.html')
 
 @csrf_exempt
 def newpay(request):
@@ -187,10 +187,10 @@ def newpay(request):
                 return render(request, 'payment_new.html')
         else:
             #request.session['flag'] = 'false'
-            return render(request, 'error_page.html')
+            return render(request, 'errorpage.html')
     except:
         request.session['flag'] = 'false'
-        return render(request, 'error_page.html')
+        return render(request, 'errorpage.html')
 
 def paymentsuccess(request):
     try:
@@ -198,7 +198,7 @@ def paymentsuccess(request):
 
     except:
         request.session['flag'] = 'false'
-        return render(request, 'error_page.html')
+        return render(request, 'errorpage.html')
 
 @csrf_exempt
 def reservation(request):
@@ -262,7 +262,7 @@ def cancellation(request):
 
         return render(request, 'cancellationSuccess.html')
     else:
-        return render(request, 'error_page.html')
+        return render(request, 'errorpage.html')
 
 
 def about(request):
